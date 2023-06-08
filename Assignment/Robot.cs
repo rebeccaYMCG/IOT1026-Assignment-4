@@ -40,9 +40,9 @@ public class Robot
     }
 
     /// <summary>
-    ///
+    /// Executes the loaded RobotCommands sequentially.
     /// </summary>
-    /// <throws> </throws>
+    /// <exception cref="Exception">Thrown if an error occurs during the command execution.</exception>
     public void Run()
     {
         for (var i = 0; i < _commandsLoaded; ++i)
@@ -53,10 +53,10 @@ public class Robot
     }
 
     /// <summary>
-    ///
+    /// loads a RobotCommand into the command array
     /// </summary>
-    /// <param name="command"></param>
-    /// <returns></returns>
+    /// <param name="command">The RobotCommand object to load.</param>
+    /// <returns>True, if the command was successfully loaded, false otherwise</returns>
     public bool LoadCommand(RobotCommand command)
     {
         if (_commandsLoaded >= NumCommands)
