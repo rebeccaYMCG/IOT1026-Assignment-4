@@ -52,10 +52,17 @@ namespace RobotTester
                         continue;
                 }
 
-                commands.Add(command);
-                robot.LoadCommand(command);
-                robot.Run();
+                 commands.Add(command);
             }
+
+            Console.WriteLine();
+
+            foreach (RobotCommand command in commands)
+            {
+                robot.LoadCommand(command);
+            }
+
+            robot.Run();
         }
     }
 }
