@@ -57,9 +57,6 @@ namespace RobotTester
                         i--; // Decrement i to repeat the current iteration
                         continue;
                 }
-
-                commands.Add(command);
-
                 // Execute the commands and display the results
                 foreach (RobotCommand numcommand in commands)
                 {
