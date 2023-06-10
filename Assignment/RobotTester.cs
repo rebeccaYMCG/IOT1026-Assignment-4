@@ -46,6 +46,9 @@ namespace RobotTester
                     case "west":
                         command = new WestCommand();
                         break;
+                    case "jump":
+                        command = new JumpCommand();
+                        break;
                     default:
                         Console.WriteLine("Invalid command - Please try again.");
                         i--;
