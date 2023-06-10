@@ -25,51 +25,54 @@ namespace RobotTester
 
             for (int i = 0; i < numCommands; i++)
             {
-                Console.Write($"Assign Command #{i + 1}: ");
+                Console.Write($"Enter command {i + 1}: ");
                 string input = Console.ReadLine();
 
-                RobotCommand command;
+                RobotCommand newCommand;
                 switch (input.Trim().ToLower())
                 {
                     case "on":
-                        command = new OnCommand();
+                        newCommand = new OnCommand();
                         break;
                     case "off":
-                        command = new OffCommand();
+                        newCommand = new OffCommand();
                         break;
                     case "north":
-                        command = new NorthCommand();
+                        newCommand = new NorthCommand();
                         break;
                     case "south":
-                        command = new SouthCommand();
+                        newCommand = new SouthCommand();
                         break;
                     case "east":
-                        command = new EastCommand();
+                        newCommand = new EastCommand();
                         break;
                     case "west":
-                        command = new WestCommand();
+                        newCommand = new WestCommand();
                         break;
                     case "jump":
-                        command = new JumpCommand();
+                        newCommand = new JumpCommand();
                         break;
                     default:
                         Console.WriteLine("Invalid command - Please try again.");
                         i--; // Decrement i to repeat the current iteration
                         continue;
                 }
-                // Execute the commands and display the results
-                foreach (RobotCommand numcommand in commands)
-                {
-                    robot.LoadCommand(command);
-                    robot.Run();
-                    Console.WriteLine();
-                }
 
-                Console.WriteLine("Input Commands:");
-                for (int j = 0; j < commands.Count; j++)
-                {
-                    Console.WriteLine($"{j + 1}. {commands[j].GetType().Name}");
-                }
+                commands.Add(newCommand);
+            }
+
+            // Execute the commands
+            foreach (RobotCommand command in commands)
+            {
+                robot.LoadCommand(command);
+                robot.Run();
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Input Commands:");
+            for (int j = 0; j < commands.Count; j++)
+            {
+                Console.WriteLine($"{j + 1}. {commands[j].GetType().Name}");
             }
         }
     }
