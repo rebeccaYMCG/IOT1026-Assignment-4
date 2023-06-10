@@ -36,7 +36,7 @@ Follow these steps to complete the assignment:
 
 Submit a link to the GitHub repo containing your code and embed an image into your GitHub README that shows the output of your `RobotTester` class. An example image is below.
 
-![Example output](output.png)
+![Example output](Output.4.png)
 
 ## Grading Rubric
 

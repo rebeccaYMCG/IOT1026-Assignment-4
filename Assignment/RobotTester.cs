@@ -9,7 +9,7 @@ namespace RobotTester
         public static void Run()
         {
             Robot robot = new();
-            List<RobotCommand> commands = new List<RobotCommand>();
+            List<RobotCommand> commands = new();
 
             Console.WriteLine("Give 6 commands to the robot. Possible commands are: ");
             Console.WriteLine("on");
@@ -23,7 +23,7 @@ namespace RobotTester
             for (int i = 0; i < 6; i++)
             {
                 Console.Write($"Assign command #{i + 1}: ");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? string.Empty;
 
                 RobotCommand command;
                 switch (input)
