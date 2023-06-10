@@ -9,10 +9,9 @@ namespace RobotTester
         public static void Run()
         {
             Robot robot = new();
-            List<RobotCommand> commands = new();
+            List<RobotCommand> commands = new List<RobotCommand>();
 
-            Console.WriteLine("Give 6 commands to the robot. Possible commands are:");
-
+            Console.WriteLine("Give 6 commands to the robot. Possible commands are: ");
             Console.WriteLine("on");
             Console.WriteLine("off");
             Console.WriteLine("north");
@@ -21,55 +20,42 @@ namespace RobotTester
             Console.WriteLine("west");
             Console.WriteLine("jump");
 
-            int numCommands = 6;
-
-            for (int i = 0; i < numCommands; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Console.Write($"Assign command #{i + 1}: ");
                 string input = Console.ReadLine();
 
-                RobotCommand newCommand;
-                switch (input.Trim().ToLower())
+                RobotCommand command;
+                switch (input)
                 {
                     case "on":
-                        newCommand = new OnCommand();
+                        command = new OnCommand();
                         break;
                     case "off":
-                        newCommand = new OffCommand();
+                        command = new OffCommand();
                         break;
                     case "north":
-                        newCommand = new NorthCommand();
+                        command = new NorthCommand();
                         break;
                     case "south":
-                        newCommand = new SouthCommand();
+                        command = new SouthCommand();
                         break;
                     case "east":
-                        newCommand = new EastCommand();
+                        command = new EastCommand();
                         break;
                     case "west":
-                        newCommand = new WestCommand();
-                        break;
-                    case "jump":
-                        newCommand = new JumpCommand();
+                        command = new WestCommand();
                         break;
                     default:
                         Console.WriteLine("Invalid command - Please try again.");
-                        i--; // Decrement i to repeat the current iteration
+                        i--;
                         continue;
                 }
 
-                commands.Add(newCommand);
-                robot.LoadCommand(newCommand);
+                commands.Add(command);
+                robot.LoadCommand(command);
                 robot.Run();
             }
-            
-            Console.WriteLine("Input Commands:");
-            for (int i = 0; i < commands.Count; i++)
-            {
-                Console.WriteLine($"Assign command {i + 1}: {commands[i].GetType().Name}");
-            }
-
-            Console.WriteLine(robot);
         }
     }
 }
