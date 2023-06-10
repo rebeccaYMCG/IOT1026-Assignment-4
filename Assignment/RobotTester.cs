@@ -59,15 +59,14 @@ namespace RobotTester
                 }
 
                 commands.Add(command);
-                robot.LoadCommand(command);
-                robot.Run();
-                Console.WriteLine();
-            }
 
-            Console.WriteLine("Input Commands:");
-            for (int i = 0; i < commands.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {commands[i].GetType().Name}");
+                // Execute the commands and display the results
+                foreach (RobotCommand numcommand in commands)
+                {
+                    robot.LoadCommand(command);
+                    robot.Run();
+                    Console.WriteLine();
+                }
             }
         }
     }
