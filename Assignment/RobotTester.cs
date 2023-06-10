@@ -11,25 +11,25 @@ namespace RobotTester
             Robot robot = new();
             List<RobotCommand> commands = new();
 
-            while (true)
+            Console.WriteLine("Give 6 commands to the robot. Possible commands are:");
+
+            Console.WriteLine("on");
+            Console.WriteLine("off");
+            Console.WriteLine("north");
+            Console.WriteLine("south");
+            Console.WriteLine("east");
+            Console.WriteLine("west");
+            Console.WriteLine("jump");
+
+            int numCommands = 6;
+
+            for (int i = 0; i < numCommands; i++)
             {
-                Console.WriteLine("Give 6 commands to the robot. Possible commands are: ");
-
-                Console.WriteLine("On");
-                Console.WriteLine("Off");
-                Console.WriteLine("North");
-                Console.WriteLine("South");
-                Console.WriteLine("East");
-                Console.WriteLine("West");
-                Console.WriteLine("Jump");
-
-                string input = Console.ReadLine().Trim().ToUpper();
-
-                if (input == "EXIT")
-                    break;
+                Console.WriteLine($"Assign Command #{i + 1}: ");
+                string input = Console.ReadLine();
 
                 RobotCommand command;
-                switch (input)
+                switch (input.Trim().ToLower())
                 {
                     case "on":
                         command = new OnCommand();
@@ -49,15 +49,18 @@ namespace RobotTester
                     case "west":
                         command = new WestCommand();
                         break;
+                    case "jump":
+                        command = new JumpCommand();
+                        break;
                     default:
                         Console.WriteLine("Invalid command - Please try again.");
+                        i--; // Decrement i to repeat the current iteration
                         continue;
                 }
 
                 commands.Add(command);
                 robot.LoadCommand(command);
                 robot.Run();
-                Console.WriteLine($"Robot State: Power: {robot.IsPowered}, Position: ({robot.X}, {robot.Y})");
                 Console.WriteLine();
             }
 
