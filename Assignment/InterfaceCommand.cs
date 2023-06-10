@@ -34,3 +34,8 @@ public class NorthCommand : RobotCommand
 {
     public void Run(Robot robot) { if (robot.IsPowered) robot.Y++; }
 }
+
+public class JumpCommand : RobotCommand
+{
+    public void Run(Robot robot) { if (robot.IsPowered) robot.Y++; }
+}
