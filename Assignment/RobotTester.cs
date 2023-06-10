@@ -59,12 +59,7 @@ namespace RobotTester
                 }
 
                 commands.Add(newCommand);
-            }
-
-            // Execute the commands
-            foreach (RobotCommand command in commands)
-            {
-                robot.LoadCommand(command);
+                robot.LoadCommand(newCommand);
                 robot.Run();
             }
         }
