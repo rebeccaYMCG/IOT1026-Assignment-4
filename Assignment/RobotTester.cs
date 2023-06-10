@@ -25,7 +25,7 @@ namespace RobotTester
 
             for (int i = 0; i < numCommands; i++)
             {
-                Console.Write($"Enter command {i + 1}: ");
+                Console.Write($"Assign command #{i + 1}: ");
                 string input = Console.ReadLine();
 
                 RobotCommand newCommand;
@@ -67,12 +67,6 @@ namespace RobotTester
                 robot.LoadCommand(command);
                 robot.Run();
                 Console.WriteLine();
-            }
-
-            Console.WriteLine("Input Commands:");
-            for (int j = 0; j < commands.Count; j++)
-            {
-                Console.WriteLine($"{j + 1}. {commands[j].GetType().Name}");
             }
         }
     }
