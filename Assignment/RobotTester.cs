@@ -13,7 +13,7 @@ namespace RobotTester
 
             while (true)
             {
-                Console.Write("Give 6 commands to the robot. Possible commands are: ");
+                Console.WriteLine("Give 6 commands to the robot. Possible commands are: ");
 
                 Console.WriteLine("On");
                 Console.WriteLine("Off");
@@ -31,22 +31,22 @@ namespace RobotTester
                 RobotCommand command;
                 switch (input)
                 {
-                    case "On":
+                    case "on":
                         command = new OnCommand();
                         break;
-                    case "Off":
+                    case "off":
                         command = new OffCommand();
                         break;
-                    case "North":
+                    case "north":
                         command = new NorthCommand();
                         break;
-                    case "South":
+                    case "south":
                         command = new SouthCommand();
                         break;
-                    case "East":
+                    case "east":
                         command = new EastCommand();
                         break;
-                    case "West":
+                    case "west":
                         command = new WestCommand();
                         break;
                     default:
