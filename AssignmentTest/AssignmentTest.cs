@@ -117,7 +117,7 @@ namespace AssignmentTest
         public void JumpCommandTest()
         {
             Robot testRobot = new();
-            Assert.AreEqual(testRobot.IsPowered, false);
+            Assert.AreEqual(testRobot.IsPowered, 0);
             testRobot.LoadCommand(new JumpCommand());
             testRobot.Run();
             Assert.AreEqual(testRobot.Y, 0);
