@@ -66,7 +66,6 @@ namespace RobotTester
             {
                 robot.LoadCommand(command);
                 robot.Run();
-                Console.WriteLine();
             }
         }
     }
