@@ -64,6 +64,12 @@ namespace RobotTester
                     robot.Run();
                     Console.WriteLine();
                 }
+
+                Console.WriteLine("Input Commands:");
+                for (int j = 0; j < commands.Count; j++)
+                {
+                    Console.WriteLine($"{j + 1}. {commands[j].GetType().Name}");
+                }
             }
         }
     }
