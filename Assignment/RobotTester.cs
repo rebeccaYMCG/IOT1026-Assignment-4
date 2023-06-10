@@ -25,7 +25,7 @@ namespace RobotTester
 
             for (int i = 0; i < numCommands; i++)
             {
-                Console.WriteLine($"Assign Command #{i + 1}: ");
+                Console.Write($"Assign Command #{i + 1}: ");
                 string input = Console.ReadLine();
 
                 RobotCommand command;
