@@ -36,9 +36,7 @@ namespace AssignmentTest
             testRobot.LoadCommand(new OnCommand());
             testRobot.Run();
             Assert.AreEqual(testRobot.IsPowered, true);
-            // 
             testRobot.Run();
-            //
             Assert.AreEqual(testRobot.IsPowered, true);
         }
 
@@ -84,6 +82,7 @@ namespace AssignmentTest
             testRobot.Run();
             Assert.AreEqual(testRobot.Y, -2);
         }
+
         [TestMethod]
         public void MoveEastTestCommand()
         {
@@ -112,6 +111,21 @@ namespace AssignmentTest
             Assert.AreEqual(testRobot.X, -1);
             testRobot.Run();
             Assert.AreEqual(testRobot.X, -2);
+        }
+
+        [TestMethod]
+        public void JumpCommandTest()
+        {
+            Robot testRobot = new();
+            Assert.AreEqual(testRobot.IsPowered, false);
+            testRobot.LoadCommand(new JumpCommand());
+            testRobot.Run();
+            Assert.AreEqual(testRobot.Y, 0);
+            testRobot.IsPowered = true;
+            testRobot.Run();
+            Assert.AreEqual(testRobot.Y, 2);
+            testRobot.Run();
+            Assert.AreEqual(testRobot.Y, 4);
         }
     }
 }
