@@ -55,7 +55,7 @@ namespace RobotTester
                         continue;
                 }
 
-                 commands.Add(command);
+                commands.Add(command);
             }
 
             Console.WriteLine();
